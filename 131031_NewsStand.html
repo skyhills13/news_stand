@@ -3,8 +3,7 @@
 <head>
 <meta charset=utf-8 />
 <title>News Stand</title>
-<link type="text/css" rel="stylesheet" href="./131031_NewsStand2.css"/>
-
+<link type="text/css" rel="stylesheet" href="./131031_NewsStand3.css"/>
 </head>
 <body>
   <div id = "wrap">
@@ -24,18 +23,18 @@
     <div id = "personalize_magazine_menu">
       <ul>
         <li>
-          <a href = "#">my news</a>
+          <a href = "http://newsstand.naver.com/?list=my">my news</a>
         </li>
         <li>
-          <a href = "#">전체 언론사</a>
+          <a onClick ="location.reload()" href = "./131031_NewsStand3.html">전체 언론사</a>
         </li>
       </ul>
     </div>
     
     <!-- 최상단 우측 메뉴-->
       <nav id = "personalize_option_menu">
-        <button id = "login">로그인</button> 
-        <a href = "/renew/">새로고침</a> |
+        <button class = "alertNone" id = "login">로그인</button> 
+        <a onClick ="location.reload()" href = "./131031_NewsStand3.html">새로고침</a> |
         <a href = "/option/"> 설정 </a> |
         <a href = "http://www.naver.com"> naver</a>
       </nav>
@@ -64,12 +63,12 @@
     <div id = "contents">
       <div id = "contents_header">
         <div id = "contents_title">
-          <a href = "http://http://www.nhnnext.org/community/letter.nhn"><img src = "http://postfiles7.naver.net/20120228_54/nhnnext_1330410432689esAzG_JPEG/NEXT_logo.PNG?type=w2" height = 50px />
+          <a href = "http://www.nhnnext.org"><img src = "http://postfiles7.naver.net/20120228_54/nhnnext_1330410432689esAzG_JPEG/NEXT_logo.PNG?type=w2" height = 50px />
           </a> 
         </div>
         <ul id = "SNS">
-          <li><button id = "subscribe">구독하기</button></li>
-          <li><button id = "one_comment">이용자 한마디</button></li>
+          <li><button class = "alertNone" id = "subscribe">구독하기</button></li>
+          <li><button class = "alertNone" id = "one_comment">이용자 한마디</button></li>
           <li><a href = "#"><img src = " http://postfiles5.naver.net/20120418_212/livingocean_1334736380519H8Gun_PNG/512.png?type=w2" height = 17px /></a> </li>
           <li><a href = "#"><img src = "https://si0.twimg.com/profile_images/3513354941/24aaffa670e634a7da9a087bfa83abe6.png" height = 17px /></a></li>
           <li><a href = "#"><img src = "http://www.thoughtplanters.com/images/502/large/twitter-logotype.gif" height = 17px /></a></li>
@@ -77,6 +76,7 @@
         <div id = "contents_header_advertisement"><a herf="#"><img src="http://adcreative.naver.com/ad3/1004/1004874/420_90_01381801624212.jpg" width="420" height="85" title="" alt="광고 영역 입니다." border="0"></a>
         </div>
         </div>
+        <!--<img src="http://adcreative.naver.com/ad3/1004/1004874/420_90_21385000614000.jpg" width="420" height="90" title="" alt="광고 영역 입니다." border="0">-->
 
       <div id = "contents_container3">
         <div id = "contents_container4">
@@ -84,11 +84,14 @@
       <div class = "article_frame" id = "contents_left">
       <ul>
         <li class = "article_individual"></li>
+        <li class = "article_individual"></li>
+        <li class = "article_individual"></li>  
         </ul>
       </div>
       
       <div class = "article_frame" id = "contents_mid">
         <ul>
+          <li class = "article_individual"></li>
           <li class = "article_individual"></li>
         </ul>
       </div>
@@ -96,7 +99,8 @@
       <div class = "article_frame" id = "contents_right">
         <ul>
           <li class = "article_individual"></li>
-        </ul>
+          <li class = "article_individual"></li>
+          </ul>
       </div>    
         </div>
          </div>
@@ -113,15 +117,18 @@
         </select>
       </div>
   </div>
+    
+    
 <aside id = "choose_magazine">
+    <div id = "navListener"><a href = "#">네비게이션 펼치기</a></div>
       <!--언론사별 선택 가능한 네비게이션 메뉴-->
       <nav id= "magazine_menu">
         <a href = "#"><img src="http://static.naver.net/newsstand/up/2013/0111/nsd10118864.gif" width="77" height="77" alt="한국경제TV"></a> 
         <a href = "#"><img src="http://static.naver.net/newsstand/up/2012/1118/nsd16353971.gif" width="77" height="77" alt="블로터닷넷"></a> 
-        <a href = "/zdnet/"><img src="http://static.naver.net/newsstand/up/2012/1116/nsd18341092.gif" width="77" height="77" alt="지디넷코리아"></a> 
-        <a href = "/kyung/"><img src="http://static.naver.net/newsstand/up/2012/1118/nsd16500796.gif" width="77" height="77" alt="경향신문"></a> 
-        <a href = "/hani/"><img src="http://static.naver.net/newsstand/up/2012/1116/nsd185116392.gif" width="77" height="77" alt="한겨레"></a> 
-        <a href = "/add/">언론사 추가</a>  
+        <a href = "#"><img src="http://static.naver.net/newsstand/up/2012/1116/nsd18341092.gif" width="77" height="77" alt="지디넷코리아"></a> 
+        <a href = "#"><img src="http://static.naver.net/newsstand/up/2012/1118/nsd16500796.gif" width="77" height="77" alt="경향신문"></a> 
+        <a href = "#"><img src="http://static.naver.net/newsstand/up/2012/1116/nsd185116392.gif" width="77" height="77" alt="한겨레"></a> 
+        <a href = "#">언론사 추가</a>  
       </nav>  
     </aside>    
     
@@ -138,21 +145,79 @@
       <span>All Right Reserved </span> 
       </address>
   </footer>
-  <script>
     
+  <script>
+
+window.addEventListener('load',function(){init();},false);
       
-    window.addEventListener('load',function(){console.log("loading done")},false);      
+           
+function init() {
+       registerEvents();
+       setArticles();
+}
+            
+//클릭 이벤트//
+function registerEvents() {
+        
+        //네이게이션 펼치기 부분
+        var navListener = document.getElementById('navListener');
+        navListener.addEventListener('click', toggleMenu, false );
+    
+        var noneButtons = document.getElementsByClassName('alertNone'); //구현 페이지가 없는 버튼들을 묶어서 같은 클래스로 만듦
+        for( var i = 0; i<noneButtons.length ; i++){
+            noneButtons[i].addEventListener('click', alertNone, false);
+        }
+      }
+      
+function toggleMenu(e) {
+    
+    e.preventDefault();
+    
+    var magazine_menu = document.getElementById('magazine_menu');       
+    console.log(magazine_menu);
+    var magazine_display = getStyle(magazine_menu, 'display');
+    console.log(magazine_display);
+    
+    if ( magazine_display === 'block' ) {
+        magazine_menu.style.display = 'none';
+        e.currentTarget.children[0].innerHTML = "네비게이션 펼치기";
+        
+    } else {
+        magazine_menu.style.display  = 'block'; 
+        
+        e.currentTarget.children[0].innerHTML = "네비게이션 닫기";
+    }
+    
+}
 
       
+function getStyle( node, style ) {
+    return window.getComputedStyle(node, null).getPropertyValue(style);
+}
+
+function alertNone(e){
+    alert("구현되지 않은 페이지입니다.");
+}
+      
+      
 //신문기사 배치하는 부분//
-  var articlesList = [['3일간의 리얼 다큐멘터리 NEXT WAY','http://blog.naver.com/nhnnext/20198433400'],
-                      ['인터넷 데이터 센터 각 방문기','http://blog.naver.com/nhnnext/20196590574'],
-                      ['NEXT 기업탐방 프로그램 : 엑스엘게임즈','http://blog.naver.com/nhnnext/20193319013'],
-                      ['NEXT를 위한 기분 좋은 시간, NHN NEXT 학생과의 만남','http://blog.naver.com/nhnnext/20188625676'],
-                      ['NHN NEXT, 2013 iF 디자인어워드 디자인 부문 수상','http://blog.naver.com/nhnnext/20172842061'],
-                      ['엔트리브소프트 김준영 대표의 편지','http://blog.naver.com/nhnnext/20194804116'],
-                      ['NEXT 소프트웨어 창의체험 활동 이야기','http://blog.naver.com/nhnnext/20191798933']]
   var setArticles= function(){
+      
+      var articlesList = [['3일간의 리얼 다큐멘터리 NEXT WAY','http://blog.naver.com/nhnnext/20198433400',
+                       'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_cony7.png'],
+                      ['인터넷 데이터 센터 각 방문기','http://blog.naver.com/nhnnext/20196590574',
+                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_james11.png'],
+                      ['NEXT 기업탐방 프로그램 : 엑스엘게임즈','http://blog.naver.com/nhnnext/20193319013',
+                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_brown12.png'],
+                      ['NEXT를 위한 기분 좋은 시간, NHN NEXT 학생과의 만남','http://blog.naver.com/nhnnext/20188625676',
+                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_moon7.png'],
+                      ['NHN NEXT, 2013 iF 디자인어워드 디자인 부문 수상','http://blog.naver.com/nhnnext/20172842061',
+                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_brown4.png'],
+                      ['엔트리브소프트 김준영 대표의 편지','http://blog.naver.com/nhnnext/20194804116',
+                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_james10.png'],
+                      ['NEXT 소프트웨어 창의체험 활동 이야기','http://blog.naver.com/nhnnext/20191798933',
+                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/moon2.png']]
+      
 
       var article_individuals = document.getElementsByClassName('article_individual'); 
       console.log(article_individuals);
@@ -161,8 +226,7 @@
       
       for(var i = 0; i < num_of_articles ; i ++) {
                 var index = parseInt(Math.random() * 10 % articlesList.length);
-                if(selected_idx.indexOf(index) != -1) {
-                    console.log('duplicated');
+                if(selected_idx.indexOf(index) != -1) { //index가 있으면 중복되니까   
                     i--;
                     continue;
                 }
@@ -172,11 +236,15 @@
             for(var i = 0; i < article_individuals.length ; i ++ ) {
                 var index = selected_idx[i];
                 article_individuals[i].innerHTML = 
-                    '<a href=\''+ articlesList[index][1] +'\'>' + articlesList[index][0] + '</a>' ;
-            }
+                    "<img src =\'"+ articlesList[index][2] +"\'" +" " + "width = 100px" + "</img>"
+                +
+                    "<a href=\'"+ articlesList[index][1] +"\'>" + articlesList[index][0] + "</a>";
+            } 
   }
-      
-  setArticles();
+  
+ // init();
+
+  
   //배치 끝//                        
     
   </script>
