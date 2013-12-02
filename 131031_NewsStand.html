@@ -3,7 +3,7 @@
 <head>
 <meta charset=utf-8 />
 <title>News Stand</title>
-<link type="text/css" rel="stylesheet" href="./131031_NewsStand1.css"/>
+<link type="text/css" rel="stylesheet" href="./131031_NewsStand2.css"/>
 
 </head>
 <body>
@@ -61,7 +61,7 @@
 
     
   <!--실제 컨텐츠가 들어가는 신문 부분-->
-    <section id = "contents">
+    <div id = "contents">
       <div id = "contents_header">
         <div id = "contents_title">
           <a href = "http://http://www.nhnnext.org/community/letter.nhn"><img src = "http://postfiles7.naver.net/20120228_54/nhnnext_1330410432689esAzG_JPEG/NEXT_logo.PNG?type=w2" height = 50px />
@@ -81,37 +81,21 @@
       <div id = "contents_container3">
         <div id = "contents_container4">
       
-      <div id = "contents_left">
+      <div class = "article_frame" id = "contents_left">
       <ul>
-        <li>
-          <a href = "#">판교 테크노밸리의 맛집을 파헤치다
-          </a>
-        </li>
-          <li>
-            <a href = "#">NEXT 기숙사 준공식</a>
-        </li>
+        <li class = "article_individual"></li>
         </ul>
       </div>
       
-      <div id = "contents_mid">
+      <div class = "article_frame" id = "contents_mid">
         <ul>
-          <li>
-            <a href ="#">판교의 물가는 비싸도 너무 비싸</a>
-          </li>
+          <li class = "article_individual"></li>
         </ul>
       </div>
       
-      <div id = "contents_right">
+      <div class = "article_frame" id = "contents_right">
         <ul>
-          <li>
-            <a href = "#">
-              이 신문의 정체는 무엇일까?
-            </a>
-          </li>
-          <li>
-            <a href = "#">
-              신문 제목 사진을 타고 들어가면 뭐가 나올까
-            </a>
+          <li class = "article_individual"></li>
         </ul>
       </div>    
         </div>
@@ -120,7 +104,7 @@
      
     
       <div id = "contents_footer"> 
-        자동넘김
+        <span>자동넘김</span>
         <select id ="scroll_speed">
           <option id = "fast">빠르게(15초)</option>
           <option id = "fast">보통(35초)</option>
@@ -128,10 +112,8 @@
           <option id = "fast">끄기</option>
         </select>
       </div>
-    
-  
-  
-    <aside id = "choose_magazine">
+  </div>
+<aside id = "choose_magazine">
       <!--언론사별 선택 가능한 네비게이션 메뉴-->
       <nav id= "magazine_menu">
         <a href = "#"><img src="http://static.naver.net/newsstand/up/2013/0111/nsd10118864.gif" width="77" height="77" alt="한국경제TV"></a> 
@@ -141,16 +123,14 @@
         <a href = "/hani/"><img src="http://static.naver.net/newsstand/up/2012/1116/nsd185116392.gif" width="77" height="77" alt="한겨레"></a> 
         <a href = "/add/">언론사 추가</a>  
       </nav>  
-    </aside>
+    </aside>    
     
-    
-      <!--최하단 웹서비스 회사 관련 메뉴-->
+    <!--최하단 웹서비스 회사 관련 메뉴-->
       <footer>
       <div id = "service_info">
-      <dl>
-        <dt>공지사항</dt>
-        <dd><a href = "http://news.naver.com/main/ombudsman/notice.nhn?mid=omb&docId=10000000000029140820">뉴스스탠드 개선 안내</a></dd></dl>
-      </div><br />
+      <span>공지사항</span>
+        <span><a href = "http://news.naver.com/main/ombudsman/notice.nhn?mid=omb&docId=10000000000029140820">뉴스스탠드 개선 안내</a></span>
+      </div>
         <address>
       <span>copyright ⓒ</span> 
       <span id = "corporate"> 
@@ -158,13 +138,47 @@
       <span>All Right Reserved </span> 
       </address>
   </footer>
-  </div>
   <script>
-  var divs = document.querySelectorAll("div");
-  for(var i = 0; i < divs.length ; i++){
-    var classname= divs[i].getAttribute("class");
-    console.log(classname);
-}
+    
+      
+    window.addEventListener('load',function(){console.log("loading done")},false);      
+
+      
+//신문기사 배치하는 부분//
+  var articlesList = [['3일간의 리얼 다큐멘터리 NEXT WAY','http://blog.naver.com/nhnnext/20198433400'],
+                      ['인터넷 데이터 센터 각 방문기','http://blog.naver.com/nhnnext/20196590574'],
+                      ['NEXT 기업탐방 프로그램 : 엑스엘게임즈','http://blog.naver.com/nhnnext/20193319013'],
+                      ['NEXT를 위한 기분 좋은 시간, NHN NEXT 학생과의 만남','http://blog.naver.com/nhnnext/20188625676'],
+                      ['NHN NEXT, 2013 iF 디자인어워드 디자인 부문 수상','http://blog.naver.com/nhnnext/20172842061'],
+                      ['엔트리브소프트 김준영 대표의 편지','http://blog.naver.com/nhnnext/20194804116'],
+                      ['NEXT 소프트웨어 창의체험 활동 이야기','http://blog.naver.com/nhnnext/20191798933']]
+  var setArticles= function(){
+
+      var article_individuals = document.getElementsByClassName('article_individual'); 
+      console.log(article_individuals);
+      var num_of_articles  = article_individuals.length;      
+      var selected_idx = [];
+      
+      for(var i = 0; i < num_of_articles ; i ++) {
+                var index = parseInt(Math.random() * 10 % articlesList.length);
+                if(selected_idx.indexOf(index) != -1) {
+                    console.log('duplicated');
+                    i--;
+                    continue;
+                }
+                selected_idx.push(index);
+            }
+      
+            for(var i = 0; i < article_individuals.length ; i ++ ) {
+                var index = selected_idx[i];
+                article_individuals[i].innerHTML = 
+                    '<a href=\''+ articlesList[index][1] +'\'>' + articlesList[index][0] + '</a>' ;
+            }
+  }
+      
+  setArticles();
+  //배치 끝//                        
+    
   </script>
 </body>
 </html>
