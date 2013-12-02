@@ -224,11 +224,20 @@ aside {
   position:relative;
 }
 
+
+
+#animation_footer{
+    
+    width: 100%;
+}
+
 #navListener {
-  position:absolute;
-  top:-30px;
-    width:100px;
-    height:50px;
+    float: left;
+    padding:5px 3%;
+}
+
+#auto_scroll{
+    padding: 1px 16%;
 }
 
 footer{
