@@ -3,20 +3,30 @@ function init() {
     readImgFromJson();
 }
             
-//클릭 이벤트//
+// 클릭 이벤트//
 function registerEvents() {
         
-        //네이게이션 펼치기 부분
+        // 네이게이션 펼치기 부분
         var navListener = document.getElementById('navListener');
         navListener.addEventListener('click', toggleMenu, false );
     
-        var noneButtons = document.getElementsByClassName('alertNone'); //구현 페이지가 없는 버튼들을 묶어서 같은 클래스로 만듦
+        var noneButtons = document.getElementsByClassName('alertNone'); // 구현
+																		// 페이지가
+																		// 없는
+																		// 버튼들을
+																		// 묶어서
+																		// 같은
+																		// 클래스로
+																		// 만듦
         for( var i = 0; i<noneButtons.length ; i++){
             noneButtons[i].addEventListener('click', alertNone, false);
         }
     
         var fix_area = document.querySelector(".contents_fix_area");
         fix_area.addEventListener('click', rolling, true);
+    
+        var add_magazine_tag = document.getElementById("add_magazine_tag");
+        add_magazine_tag.addEventListener('click', addMagazine, false);
 }
       
 function toggleMenu(e) {
@@ -24,9 +34,7 @@ function toggleMenu(e) {
     e.preventDefault();
     
     var magazine_menu = document.getElementById('magazine_menu');       
-    console.log(magazine_menu);
     var magazine_display = getStyle(magazine_menu, 'display');
-    console.log(magazine_display);
     
     if ( magazine_display === 'block' ) {
         magazine_menu.style.display = 'none';
@@ -50,39 +58,40 @@ function alertNone(e){
 }
 
 function readImgFromJson() {
-    console.log("readImageFunction");
-	var template = document.getElementById("template");	
+ 	var template = document.getElementById("template");	
 	var templateInnerHTML = template.innerHTML;
 
 	var url = "./NewsStand.json";
 	var request = new XMLHttpRequest();
 	
-	request.open("GET", url, false); //false면  sync. 다 수행되야지 밑으로 넘어간다. true면 async. 바로 밑으로 내려가고 나중에 완료시 시행
+	request.open("GET", url, false); // false면 sync. 다 수행되야지 밑으로 넘어간다. true면
+										// async. 바로 밑으로 내려가고 나중에 완료시 시행
 	request.onreadystatechange=function() {
-            console.log("request.readyState : ".concat(request.readyState));
-            console.log("request.status : ".concat(request.status));
         
-    //if ( request.readyState === 4 && request.status === 200 ) {
-    if ( request.readyState === 4 ) { //톰캣이 아니니까 status는 체크 안하는걸로~
+    // if ( request.readyState === 4 && request.status === 200 ) {
+    if ( request.readyState === 4 ) { // 톰캣이 아니니까 status는 체크 안하는걸로~
 			var result = request.responseText;
                 
-            var responseArray = JSON.parse(result); //json파일에 5개짜리 배열로 저장되어 있다. [object, object, object, object, object]
-            console.log("responseArray : ".concat(responseArray));
+            var responseArray = JSON.parse(result); // json파일에 5개짜리 배열로 저장되어 있다.
+													// [object, object, object,
+													// object, object]
+            // console.log("responseArray : ".concat(responseArray));
             var resultStringArray = new Array(5);
                 
             var compiled = _.template(templateInnerHTML);
                 
-            for ( var index = 0 ; index < responseArray.length ; ++index ) {
-                console.log("responseArray : ".concat(responseArray[index].title));
-                var result = compiled( {title_template : responseArray[index].title });
-                //                      html상에 선언한 변수: xhr통신 후 response한 데이터에서 key(title)값으로 가져온 것을 대입
-                console.log(result);
-                resultStringArray[index] = result;
+            for ( var i = 0 ; i < responseArray.length ; ++i ) {
+                // console.log("responseArray :
+				// ".concat(responseArray[i].title));
+                var result = compiled( {title_template : responseArray[i].title, index_template : responseArray[i].index });
+                // html상에 선언한 변수: xhr통신 후 response한 데이터에서 key(title)값으로 가져온 것을
+				// 대입
+                resultStringArray[i] = result;
             }
 			
                 
             var content1 = document.getElementById("contents1");
-            console.log("content1 : ".concat(content1));
+            // console.log("content1 : ".concat(content1));
             content1.innerHTML = resultStringArray[0];
             setArticles(content1);    
 
@@ -106,8 +115,41 @@ function readImgFromJson() {
 	
 	request.send(null);
 }
-      
-//신문기사 배치하는 부분//
+
+
+function addMagazine (e) {
+    e.preventDefault();
+    var content = document.querySelector(".contents_full_area").children[2];
+    var content_index = content.querySelector("#index").innerHTML;
+    var content_foot_navi_img;
+    
+	var url = "./NewsStand.json";
+	var request = new XMLHttpRequest();
+	
+	request.open("GET", url, false); // false면 sync. 다 수행되야지 밑으로 넘어간다. true면
+										// async. 바로 밑으로 내려가고 나중에 완료시 시행
+	request.onreadystatechange=function() {
+            
+        // if ( request.readyState === 4 && request.status === 200 ) {
+        if ( request.readyState === 4 ) {
+                var result = request.responseText;
+                var responseArray = JSON.parse(result); // json파일에 5개짜리 배열로 저장되어
+														// 있다. [object, object,
+														// object, object,
+														// object]
+                content_foot_navi_img = responseArray[content_index].foot_navi;
+        }
+	}
+	request.send(null);
+    
+   var foot_navi_div = document.getElementById("magazine_menu");
+    var template = "<a href = '#'><img src='<%=foot_navi_template%>'></a>";
+    var compiled = _.template(template);
+    var result = compiled( {foot_navi_template : content_foot_navi_img });
+    foot_navi_div.insertAdjacentHTML('afterbegin', result);
+}
+
+// 신문기사 배치하는 부분//
 function setArticles( contentElement ){
       
     var articlesList;
@@ -117,12 +159,10 @@ function setArticles( contentElement ){
 	
 	request.open("GET", url, false);
 	request.onreadystatechange=function() {
-            console.log("request.readyState2 : ".concat(request.readyState));
-            console.log("request.status2 : ".concat(request.status));
-
+          
             if ( request.readyState === 4 ) {
                 var resultString = request.responseText;
-                console.log(resultString);
+                //console.log(resultString);
                 articlesList = JSON.parse(resultString);
             }
 	}
@@ -139,7 +179,7 @@ function setArticles( contentElement ){
       
       for(var i = 0; i < num_of_articles ; i ++) {
                 var index = parseInt(Math.random() * 10 % articlesList.length);
-                if(selected_idx.indexOf(index) != -1) { //index가 있으면 중복되니까   
+                if(selected_idx.indexOf(index) != -1) { // index가 있으면 중복되니까
                     i--;
                     continue;
                 }
@@ -157,10 +197,9 @@ function setArticles( contentElement ){
 
 function rolling(e){
     e.preventDefault();
-    
     var targetName = e.target.className;
     
-    //롤링할 대상 (contents집합)
+    // 롤링할 대상 (contents집합)
     var contents = document.querySelector(".contents_full_area");
         
     var setting = new Object();
@@ -171,41 +210,45 @@ function rolling(e){
     } else if ( targetName === "right_rolling_btn" ) {
         setting.direction = 1;
         
-    //롤링버튼이 아닐경우 함수를 탈출
+    // 롤링버튼이 아닐경우 함수를 탈출
     } else {
         return;
     }
         
-    //rolling을 stop하기 위해서 setInterval함수의 리턴값의 아이디를 저장
+    // rolling을 stop하기 위해서 setInterval함수의 리턴값의 아이디를 저장
     setting.id = null;
     
-    //현재 롤링이 얼마만큼 진행됬는지를 파악하기 위해 저장
+    // 현재 롤링이 얼마만큼 진행됬는지를 파악하기 위해 저장
     setting.count = 0;
     
-    //938이 나누어떨어지는 수로 해야ㅏ널이ㅏ럼니ㅑ더랴ㅣ머리ㅑㄷ널ㄴ
-    //롤링버튼 클릭한번할때 content가 총 66번 움직이게
+    // 938이 나누어떨어지는 수로 해야ㅏ널이ㅏ럼니ㅑ더랴ㅣ머리ㅑㄷ널ㄴ
+    // 롤링버튼 클릭한번할때 content가 총 66번 움직이게
     setting.max = 67;
     setting.id = setInterval(function() { (move)(setting,contents);	}, 3);
 }
 
 function move (setting, contents) {
     var leftValue = parseInt(getStyle(contents, 'left'));	
-	console.log("leftValue : ".concat(leftValue));
-    contents.style.left = leftValue + (setting.direction * 14) +"px";	
-    ++setting.count;//한번 move할때마다 count가 1씩 증가
-	
-    
-	// 14씩 66회(max회) 이동했을 경우 	
+	    ++setting.count;// 한번 move할때마다 count가 1씩 증가
+	contents.style.left = leftValue + (setting.direction * 14) +"px";
+	// 14씩 66회(max회) 이동했을 경우
 	if ( setting.max < setting.count ) {
 		clearInterval(setting.id);
 		setting.count = 0;		
         
         if ( setting.direction === -1 )
-            contents.insertBefore(contents.children[0] , contents.children[5]);//맨 앞을 맨뒤로
+            contents.insertBefore(contents.children[0] , contents.children[5]);// 맨 앞을
+																				// 맨뒤로
         else
-            contents.insertBefore(contents.children[4] , contents.children[0]);//맨뒤에 있는 페이지 맨 앞로 보내는거
+            contents.insertBefore(contents.children[4] , contents.children[0]);// 맨뒤에
+																				// 있는
+																				// 페이지
+																				// 맨 앞로
+																				// 보내는거
     
-        contents.style.left = leftValue + (setting.direction * -938)+"px";//옮긴거 다시 되돌려야되니까          
+        contents.style.left = leftValue + (setting.direction * -938)+"px";// 옮긴거
+																			// 다시
+																			// 되돌려야되니까
     }
 }
 

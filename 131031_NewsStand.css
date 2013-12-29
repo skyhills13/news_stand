@@ -1,315 +1,297 @@
-*{
-  font-family:  NanumGothic, 'Nanum Gothic';
+* {
+	font-family: NanumGothic, 'Nanum Gothic';
 }
 
-a{
-  text-decoration: none;
+a {
+	text-decoration: none;
 }
 
 /*
 body{
     margin: 0;
 }*/
-
-
 .blind {
-    overflow:hidden;
-    width:0;
-    height:0;
-    opacity:0;
-    padding:0;
-    margin:0;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	padding: 0;
+	margin: 0;
 }
 
 #wrap {
-  position:relative;
-  min-width:1000px;
-  min-height:800px;
-  width: 100%;
-  height:100%; /*delete this line if the page gets weird*/
-  font-size: 12px;
-    /*
+	position: relative;
+	min-width: 1000px;
+	min-height: 800px;
+	width: 100%;
+	height: 100%; /*delete this line if the page gets weird*/
+	font-size: 12px;
+	/*
   overflow: auto;*/
-  border: 1px solid;
-  padding: 0 auto;
-  background-color: #eaf5ed}
+	border: 1px solid;
+	padding: 0 auto;
+	background-color: #eaf5ed
+}
 /*
 #contents_container1, #contents_container2{
     float: left;
     width: 100%;
 }
 */
-
 header {
-  position: relative;
-  border : 1px solid;
-  background-color: #8bd09d;
-  height: 50px;
-  width: 100%;
-  padding: 0 auto;
-  
-  /*background-image:url(http://static.naver.net/newsstand/img/20121231/bg_hd.png); 
+	position: relative;
+	border: 1px solid;
+	background-color: #8bd09d;
+	height: 50px;
+	width: 100%;
+	padding: 0 auto;
+
+	/*background-image:url(http://static.naver.net/newsstand/img/20121231/bg_hd.png); 
   repeat-x*/;
 }
 
 #service_name h2 {
-  padding:5px 15px;
-  margin:0;
-  float:left;
-  
+	padding: 5px 15px;
+	margin: 0;
+	float: left;
 }
 
 #service_name h4 {
-  padding: 8px;
-  margin:0;
-  float:left;
+	padding: 8px;
+	margin: 0;
+	float: left;
 }
 
-#personalize_magazine_menu ul{
-  
-  padding:0;
-
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin-left:-70px;
-  display: block;
-  text-align: center;
-  font-size: 13px;
+#personalize_magazine_menu ul {
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -70px;
+	display: block;
+	text-align: center;
+	font-size: 13px;
 }
 
-#personalize_magazine_menu ul li{
-   
-    float:left;
-  
-    display: inline-block;
-  
-    text-align: center;
-    border: 1px solid;
-    padding: 4px 10px;
-    background-color: #347f48;
+#personalize_magazine_menu ul li {
+	float: left;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid;
+	padding: 4px 10px;
+	background-color: #347f48;
 }
-
 
 #personalize_option_menu {
-  float: right;
-  padding-top:;
-  padding-right: 10px; 
-  font-size: 13px;
-  
+	float: right;
+	padding-top:;
+	padding-right: 10px;
+	font-size: 13px;
 }
 
 #magazine_type {
-  margin: 12px;
-  font-size: 13px;
-  text-align : center;
+	margin: 12px;
+	font-size: 13px;
+	text-align: center;
 }
 
 .contents_wrap {
-    overflow:hidden;
-    position:relative;
+	overflow: hidden;
+	position: relative;
 }
 
 .left_rolling_btn {
-    z-index:5;
-    position:absolute;
-    top:40%;
-    left:-45px;
-    width:46px;
-    height:48px;
-    background:url("https://cdn0.iconfinder.com/data/icons/super-mono-basic/green/arrow-left_basic_green.png") no-repeat;      
-    
+	z-index: 5;
+	position: absolute;
+	top: 40%;
+	left: -45px;
+	width: 46px;
+	height: 48px;
+	background:
+		url("https://cdn0.iconfinder.com/data/icons/super-mono-basic/green/arrow-left_basic_green.png")
+		no-repeat;
+	  
 }
 
 .right_rolling_btn {
-    z-index:5;
-    position:absolute;
-    top:40%;
-    right:-45px;
-    width:46px;
-    height:48px;
-    background:url("https://cdn0.iconfinder.com/data/icons/super-mono-basic/green/arrow-right_basic_green.png") no-repeat;
-    
+	z-index: 5;
+	position: absolute;
+	top: 40%;
+	right: -45px;
+	width: 46px;
+	height: 48px;
+	background:
+		url("https://cdn0.iconfinder.com/data/icons/super-mono-basic/green/arrow-right_basic_green.png")
+		no-repeat;
 }
 
 .contents_fix_area {
-    position:relative;
-	width:50%;
-	margin:0 auto;
-	overflow:visible;
-	min-width:900px;
-	height:560px;
+	position: relative;
+	width: 50%;
+	margin: 0 auto;
+	overflow: visible;
+	min-width: 900px;
+	height: 560px;
 }
 
 .contents_full_area {
-    z-index:1;
-    position:absolute;
-    width:600%;
-    left:-217%;
-    top:0px;
+	z-index: 1;
+	position: absolute;
+	width: 600%;
+	left: -217%;
+	top: 0px;
 }
 
 .contents {
-    border: 1px solid;
-    display:inline-block;
-    height:540px;    
-    width: 800px; 
-    padding: 2px 18px;
-    background-color: #FFFFFF;
-    margin-left:100px;
+	border: 1px solid;
+	display: inline-block;
+	height: 540px;
+	width: 800px;
+	padding: 2px 18px;
+	background-color: #FFFFFF;
+	margin-left: 100px;
 }
 
-.contents_header{
-  height: 90px;
-  border-bottom: 3px solid;
- }
+.contents_header {
+	height: 90px;
+	border-bottom: 3px solid;
+}
 
-.contents_title{
-  padding : 5px;
-  position: relative;
-  
+.contents_title {
+	padding: 5px;
+	position: relative;
 }
 
 .SNS {
-  margin-top: 0;
-  padding-left: 4px;
-
-  
+	margin-top: 0;
+	padding-left: 4px;
 }
 
-
-.SNS li{
- 
-  display: inline-block;
-  }
+.SNS li {
+	display: inline-block;
+}
 
 .contents_header_advertisement {
- 
-  float: right;
-  padding: 0 auto;
-  margin-top: -100px;
-  
+	float: right;
+	padding: 0 auto;
+	margin-top: -100px;
 }
 
-ul{
-    padding; 10px;
-    list-style:none;
+ul {padding; 10px;
+	list-style: none;
 }
-
 
 .contents-container3 {
-  float: left;
-  width: 100%;
-  height: 100%;
+	float: left;
+	width: 100%;
+	height: 100%;
 }
 
-.article_individual{
-    border: 1px solid;
-    margin: 10px;
-    text-align:center;
+.article_individual {
+	border: 1px solid;
+	margin: 10px;
+	text-align: center;
 }
 
-.article_individual > img {
-    display: block;
-    margin: auto;
+.article_individual>img {
+	display: block;
+	margin: auto;
 }
 
 .contents-container4 {
-  float: left;
-  width:100%;
-  height: 100%;
-        
+	float: left;
+	width: 100%;
+	height: 100%;
 }
 
-.contents_left{
-  float: left;
-  width:50%;
-  height:400px;
-  
-  border: 1px solid;
-  padding: 0 0;
-  margin: 1% 0 0 1%
-   
+.contents_left {
+	float: left;
+	width: 50%;
+	height: 400px;
+	border: 1px solid;
+	padding: 0 0;
+	margin: 1% 0 0 1%
 }
 
-.contents_left > ul {
-    margin-left:-40px;
+.contents_left>ul {
+	margin-left: -40px;
 }
 
-.contents_mid > ul {
-    margin-left:-40px;
+.contents_mid>ul {
+	margin-left: -40px;
 }
 
-.contents_right > ul {
-    margin-left : -40px;
+.contents_right>ul {
+	margin-left: -40px;
 }
 
-
-.contents_mid{
-  float: left;
-  width: 15%;
-  height:400px;
-  border: 1px solid;
-  padding: 0 0;
-  margin: 1% 0 0 1%;
+.contents_mid {
+	float: left;
+	width: 15%;
+	height: 400px;
+	border: 1px solid;
+	padding: 0 0;
+	margin: 1% 0 0 1%;
 }
 
-.contents_right{
-  float: right;
-  width: 31%;
-  height:400px;
-  border: 1px solid;
-  padding: 0 0;
-  margin: 1% 0 0 0;
-  display: inline;
+.contents_right {
+	float: right;
+	width: 31%;
+	height: 400px;
+	border: 1px solid;
+	padding: 0 0;
+	margin: 1% 0 0 0;
+	display: inline;
 }
 
 .contents_footer {
-  clear:both;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: 0 0 0 1%;
+	clear: both;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 0 0 0 1%;
 }
 
 aside {
-    /*
+	/*
   width: 100%;*/
-  border-top: 3px solid;
-  padding: 10px 0 0 30px;
-  position:relative;
+	border-top: 3px solid;
+	padding: 10px 0 0 30px;
+	position: relative;
 }
 
+#magazine_menu a {
+	width: 77px;
+	height: 77px;
+	margin-right: 5px;
+}
 
-
-#animation_footer{
-    
-    width: 100%;
+#animation_footer {
+	width: 100%;
 }
 
 #navListener {
-    float: left;
-    padding:5px 3%;
+	float: left;
+	padding: 5px 3%;
 }
 
-#auto_scroll{
-    padding: 1px 16%;
+#auto_scroll {
+	padding: 1px 16%;
 }
 
-footer{
-  width:100%;
-  margin-top:10px;
-  padding-top: 10px;
-  padding-bottom: 0;
-  height: 40px;
-  background-color :#22532f;
-
-  border : 1px solid;
-  text-align:center;
+footer {
+	width: 100%;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 0;
+	height: 40px;
+	background-color: #22532f;
+	border: 1px solid;
+	text-align: center;
 }
 
 #service_info {
-  display: inline;
-  color : #7dca91;
+	display: inline;
+	color: #7dca91;
 }
 
 /*
@@ -324,7 +306,6 @@ footer{
   float: left;
   color: #b3e0bf;
 }*/
-
 address {
-  color : #7dca91;
+	color: #7dca91;
 }
