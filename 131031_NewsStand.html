@@ -3,7 +3,7 @@
 <head>
 <meta charset=utf-8 />
 <title>News Stand</title>
-<link type="text/css" rel="stylesheet" href="./131031_NewsStand4.css"/>
+<link type="text/css" rel="stylesheet" href="./131031_NewsStand1.css"/>
 </head>
 <body>
   <div id = "wrap">
@@ -26,7 +26,7 @@
           <a href = "http://newsstand.naver.com/?list=my">my news</a>
         </li>
         <li>
-          <a onClick ="location.reload()" href = "./131031_NewsStand3.html">전체 언론사</a>
+          <a onClick ="location.reload()" href = "./131031_NewsStand.html">전체 언론사</a>
         </li>
       </ul>
     </div>
@@ -34,7 +34,7 @@
     <!-- 최상단 우측 메뉴-->
       <nav id = "personalize_option_menu">
         <button class = "alertNone" id = "login">로그인</button> 
-        <a onClick ="location.reload()" href = "./131031_NewsStand3.html">새로고침</a> |
+        <a onClick ="location.reload()" href = "./131031_NewsStand.html">새로고침</a> |
         <a href = "/option/"> 설정 </a> |
         <a href = "http://www.naver.com"> naver</a>
       </nav>
@@ -60,57 +60,88 @@
 
     
   <!--실제 컨텐츠가 들어가는 신문 부분-->
-    <div id = "contents">
-      <div id = "contents_header">
-        <div id = "contents_title">
-          <a href = "http://www.nhnnext.org"><img src = "http://postfiles7.naver.net/20120228_54/nhnnext_1330410432689esAzG_JPEG/NEXT_logo.PNG?type=w2" height = 50px />
-          </a> 
-        </div>
-        <ul id = "SNS">
-          <li><button class = "alertNone" id = "subscribe">구독하기</button></li>
-          <li><button class = "alertNone" id = "one_comment">이용자 한마디</button></li>
-          <li><a href = "#"><img src = " http://postfiles5.naver.net/20120418_212/livingocean_1334736380519H8Gun_PNG/512.png?type=w2" height = 17px /></a> </li>
-          <li><a href = "#"><img src = "https://si0.twimg.com/profile_images/3513354941/24aaffa670e634a7da9a087bfa83abe6.png" height = 17px /></a></li>
-          <li><a href = "#"><img src = "http://www.thoughtplanters.com/images/502/large/twitter-logotype.gif" height = 17px /></a></li>
-        </ul>
-        <div id = "contents_header_advertisement"><a herf="#"><img src="http://adcreative.naver.com/ad3/1004/1004874/420_90_01381801624212.jpg" width="420" height="85" title="" alt="광고 영역 입니다." border="0"></a>
-        </div>
-        </div>
-        <!--<img src="http://adcreative.naver.com/ad3/1004/1004874/420_90_21385000614000.jpg" width="420" height="90" title="" alt="광고 영역 입니다." border="0">-->
-
-      <div id = "contents_container3">
-        <div id = "contents_container4">
+      <div class = "contents_wrap">
+          <div class = "contents_fix_area">
+              
+              <a class="left_rolling_btn" href="*"></a>
+              <a class="right_rolling_btn" href="*"></a>
+              <h2 class="blind">여기는 템플릿 영역입니다.</h2>
+              <div id="template" class="blind">
+                  <div class = "contents_header">
+                            <div class = "contents_title">
+                              <a href = "http://www.nhnnext.org"><img src = "http://postfiles7.naver.net/20120228_54/nhnnext_1330410432689esAzG_JPEG/NEXT_logo.PNG?type=w2" height = 50px />
+                              </a> 
+                            </div>
+                            <ul class = "SNS">
+                              <li><button class = "alertNone" >구독하기</button></li>
+                              <li><button class = "alertNone" >이용자 한마디</button></li>
+                              <li><a href = "#"><img src = " http://postfiles5.naver.net/20120418_212/livingocean_1334736380519H8Gun_PNG/512.png?type=w2" height = 17px /></a> </li>
+                              <li><a href = "#"><img src = "https://si0.twimg.com/profile_images/3513354941/24aaffa670e634a7da9a087bfa83abe6.png" height = 17px /></a></li>
+                              <li><a href = "#"><img src = "http://www.thoughtplanters.com/images/502/large/twitter-logotype.gif" height = 17px /></a></li>
+                            </ul>
+                            <div class = "contents_header_advertisement"><a herf="#"><img src="http://adcreative.naver.com/ad3/1004/1004874/420_90_01381801624212.jpg" width="420" height="85" title="" alt="광고 영역 입니다." border="0"></a>
+                            </div>
+                            </div>
+                            <!--<img src="http://adcreative.naver.com/ad3/1004/1004874/420_90_21385000614000.jpg" width="420" height="90" title="" alt="광고 영역 입니다." border="0">-->
+                    
+                          <div class = "contents_container3">
+                            <div class = "contents_container4">
+                          
+                          <div class = "contents_left">
+                          <ul>
+                            <li class = "article_individual"></li>
+                            <li class = "article_individual"></li>
+                            <li class = "article_individual"></li>  
+                            </ul>
+                          </div>
+                          
+                          <div class = "contents_mid">
+                            <ul>
+                              <li class = "article_individual"></li>
+                              <li class = "article_individual"></li>
+                            </ul>
+                          </div>
+                          
+                          <div class = "contents_right">
+                            <ul>
+                              <li class = "article_individual"></li>
+                              <li class = "article_individual"></li>
+                              </ul>
+                          </div>    
+                            </div>
+                             </div>
+                         </section>
+                         
+                        
+                          <div class = "contents_footer">
+                              <span>오오</span>
+                          </div>
+              </div>
+              
+              
+              <div class = "contents_full_area">
+                  
+                 <!-- 첫번째 신문영역-->
+                 <div class = "contents" id = "contents1"></div>
+                 <!-- 두번째 신문영역-->
+                 <div class = "contents" id = "contents2"></div>
+                 <!-- 세번째 신문영역-->
+                 <div class = "contents" id = "contents3"></div>
+                 <!-- 네번째 신문영역-->
+                 <div class = "contents" id = "contents4"></div>
+                 <!-- 다섯번째 신문영역-->
+                 <div class = "contents" id = "contents5"></div>     
+          
+          
+                  </div>
       
-      <div class = "article_frame" id = "contents_left">
-      <ul>
-        <li class = "article_individual"></li>
-        <li class = "article_individual"></li>
-        <li class = "article_individual"></li>  
-        </ul>
-      </div>
-      
-      <div class = "article_frame" id = "contents_mid">
-        <ul>
-          <li class = "article_individual"></li>
-          <li class = "article_individual"></li>
-        </ul>
-      </div>
-      
-      <div class = "article_frame" id = "contents_right">
-        <ul>
-          <li class = "article_individual"></li>
-          <li class = "article_individual"></li>
-          </ul>
-      </div>    
+        <!-- full area 끝 -->
         </div>
-         </div>
-     </section>
-     
+    <!--중앙 contents영역 끝 -->
+    </div>
     
-      <div id = "contents_footer">
-          <span>오오</span>
-      </div>
-  </div>
+    
+    
     <div id = "animation_footer">
      <div id = "navListener"><a href = "#">네비게이션 펼치기</a></div>
     <div id = "auto_scroll"> 
@@ -224,7 +255,7 @@ function alertNone(e){
                       'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/moon2.png']]
       
 
-      var article_individuals = document.getElementsByClassName('article_individual'); 
+      var article_individuals = document.getElementById('contents1').getElementsByClassName('article_individual'); 
       console.log(article_individuals);
       var num_of_articles  = article_individuals.length;      
       var selected_idx = [];

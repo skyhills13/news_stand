@@ -11,6 +11,16 @@ body{
     margin: 0;
 }*/
 
+
+.blind {
+    overflow:hidden;
+    width:0;
+    height:0;
+    opacity:0;
+    padding:0;
+    margin:0;
+}
+
 #wrap {
   position:relative;
   min-width:1000px;
@@ -95,27 +105,72 @@ header {
   text-align : center;
 }
 
-#contents {
-  border: 1px solid;
-  height: auto;
-  width: 65%; 
-  margin: 10px auto;
-  padding: 2px 18px;
-  background-color: #FFFFFF;
+.contents_wrap {
+    overflow:hidden;
+    position:relative;
 }
 
-#contents_header{
+.left_rolling_btn {
+    z-index:5;
+    position:absolute;
+    top:40%;
+    left:-45px;
+    width:46px;
+    height:48px;
+    background:url("https://cdn0.iconfinder.com/data/icons/super-mono-basic/green/arrow-left_basic_green.png") no-repeat;      
+    
+}
+
+.right_rolling_btn {
+    z-index:5;
+    position:absolute;
+    top:40%;
+    right:-45px;
+    width:46px;
+    height:48px;
+    background:url("https://cdn0.iconfinder.com/data/icons/super-mono-basic/green/arrow-right_basic_green.png") no-repeat;
+    
+}
+
+.contents_fix_area {
+    position:relative;
+	width:50%;
+	margin:0 auto;
+	overflow:visible;
+	min-width:900px;
+	height:560px;
+}
+
+.contents_full_area {
+    z-index:1;
+    position:absolute;
+    width:600%;
+    left:-217%;
+    top:0px;
+}
+
+.contents {
+    border: 1px solid;
+    display:inline-block;
+    height:500px;    
+    width: 800px; 
+    padding: 2px 18px;
+    background-color: #FFFFFF;
+    margin-left:100px;
+}
+
+.contents_header{
   height: 90px;
   border-bottom: 3px solid;
  }
 
-#contents_title{
+.contents_title{
   padding : 5px;
   position: relative;
   
 }
 
-#SNS {
+.SNS {
   margin-top: 0;
   padding-left: 4px;
 
@@ -123,12 +178,12 @@ header {
 }
 
 
-#SNS li{
+.SNS li{
  
   display: inline-block;
   }
 
-#contents_header_advertisement {
+.contents_header_advertisement {
  
   float: right;
   padding: 0 auto;
@@ -142,7 +197,7 @@ ul{
 }
 
 
-#contents-container3 {
+.contents-container3 {
   float: left;
   width: 100%;
   height: 100%;
@@ -159,14 +214,14 @@ ul{
     margin: auto;
 }
 
-#contents-container4 {
+.contents-container4 {
   float: left;
   width:100%;
   height: 100%;
         
 }
 
-#contents_left{
+.contents_left{
   float: left;
   width:50%;
   height:400px;
@@ -177,20 +232,20 @@ ul{
    
 }
 
-#contents_left > ul {
+.contents_left > ul {
     margin-left:-40px;
 }
 
-#contents_mid > ul {
+.contents_mid > ul {
     margin-left:-40px;
 }
 
-#contents_right > ul {
+.contents_right > ul {
     margin-left : -40px;
 }
 
 
-#contents_mid{
+.contents_mid{
   float: left;
   width: 15%;
   height:400px;
@@ -199,7 +254,7 @@ ul{
   margin: 1% 0 0 1%;
 }
 
-#contents_right{
+.contents_right{
   float: right;
   width: 31%;
   height:400px;
@@ -209,7 +264,7 @@ ul{
   display: inline;
 }
 
-#contents_footer {
+.contents_footer {
   clear:both;
   padding-top: 10px;
   padding-bottom: 10px;
