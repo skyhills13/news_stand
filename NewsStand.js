@@ -14,7 +14,10 @@ function registerEvents() {
         for( var i = 0; i<noneButtons.length ; i++){
             noneButtons[i].addEventListener('click', alertNone, false);
         }
-      }
+    
+        var fix_area = document.querySelector(".contents_fix_area");
+        fix_area.addEventListener('click', rolling, true);
+}
       
 function toggleMenu(e) {
     
@@ -59,8 +62,8 @@ function readImgFromJson() {
             console.log("request.readyState : ".concat(request.readyState));
             console.log("request.status : ".concat(request.status));
         
-			//if ( request.readyState === 4 && request.status === 200 ) {
-            if ( request.readyState === 4 ) { //톰캣이 아니니까 status는 체크 안하는걸로~
+    //if ( request.readyState === 4 && request.status === 200 ) {
+    if ( request.readyState === 4 ) { //톰캣이 아니니까 status는 체크 안하는걸로~
 			var result = request.responseText;
                 
             var responseArray = JSON.parse(result); //json파일에 5개짜리 배열로 저장되어 있다. [object, object, object, object, object]
@@ -108,24 +111,7 @@ function readImgFromJson() {
 function setArticles( contentElement ){
       
     var articlesList;
-//      var articlesList = [['3일간의 리얼 다큐멘터리 NEXT WAY','http://blog.naver.com/nhnnext/20198433400',
-//                       'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_cony7.png'],
-//                      ['인터넷 데이터 센터 각 방문기','http://blog.naver.com/nhnnext/20196590574',
-//                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_james11.png'],
-//                      ['NEXT 기업탐방 프로그램 : 엑스엘게임즈','http://blog.naver.com/nhnnext/20193319013',
-//                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_brown12.png'],
-//                      ['NEXT를 위한 기분 좋은 시간, NHN NEXT 학생과의 만남','http://blog.naver.com/nhnnext/20188625676',
-//                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_moon7.png'],
-//                      ['NHN NEXT, 2013 iF 디자인어워드 디자인 부문 수상','http://blog.naver.com/nhnnext/20172842061',
-//                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_brown4.png'],
-//                      ['엔트리브소프트 김준영 대표의 편지','http://blog.naver.com/nhnnext/20194804116',
-//                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/img_james10.png'],
-//                      ['NEXT 소프트웨어 창의체험 활동 이야기','http://blog.naver.com/nhnnext/20191798933',
-//                      'http://static.campaign.naver.com/0/campaign/2012/04/line_sticker/img/pc/ko/moon2.png']];
-    
-    
-    
-    //
+        
     var url = "./NewsStand_article.json";
 	var request = new XMLHttpRequest();
 	
@@ -133,7 +119,7 @@ function setArticles( contentElement ){
 	request.onreadystatechange=function() {
             console.log("request.readyState2 : ".concat(request.readyState));
             console.log("request.status2 : ".concat(request.status));
-            debugger;
+
             if ( request.readyState === 4 ) {
                 var resultString = request.responseText;
                 console.log(resultString);
@@ -167,6 +153,60 @@ function setArticles( contentElement ){
                 +
                     "<a href=\'"+ articlesList[index][1] +"\'>" + articlesList[index][0] + "</a>";
             } 
+}
+
+function rolling(e){
+    e.preventDefault();
+    
+    var targetName = e.target.className;
+    
+    //롤링할 대상 (contents집합)
+    var contents = document.querySelector(".contents_full_area");
+        
+    var setting = new Object();
+    setting.direction = null;
+    
+    if ( targetName === "left_rolling_btn") {
+        setting.direction = -1;
+    } else if ( targetName === "right_rolling_btn" ) {
+        setting.direction = 1;
+        
+    //롤링버튼이 아닐경우 함수를 탈출
+    } else {
+        return;
+    }
+        
+    //rolling을 stop하기 위해서 setInterval함수의 리턴값의 아이디를 저장
+    setting.id = null;
+    
+    //현재 롤링이 얼마만큼 진행됬는지를 파악하기 위해 저장
+    setting.count = 0;
+    
+    //938이 나누어떨어지는 수로 해야ㅏ널이ㅏ럼니ㅑ더랴ㅣ머리ㅑㄷ널ㄴ
+    //롤링버튼 클릭한번할때 content가 총 66번 움직이게
+    setting.max = 67;
+    setting.id = setInterval(function() { (move)(setting,contents);	}, 3);
+}
+
+function move (setting, contents) {
+    var leftValue = parseInt(getStyle(contents, 'left'));	
+	console.log("leftValue : ".concat(leftValue));
+    contents.style.left = leftValue + (setting.direction * 14) +"px";	
+    ++setting.count;//한번 move할때마다 count가 1씩 증가
+	
+    
+	// 14씩 66회(max회) 이동했을 경우 	
+	if ( setting.max < setting.count ) {
+		clearInterval(setting.id);
+		setting.count = 0;		
+        
+        if ( setting.direction === -1 )
+            contents.insertBefore(contents.children[0] , contents.children[5]);//맨 앞을 맨뒤로
+        else
+            contents.insertBefore(contents.children[4] , contents.children[0]);//맨뒤에 있는 페이지 맨 앞로 보내는거
+    
+        contents.style.left = leftValue + (setting.direction * -938)+"px";//옮긴거 다시 되돌려야되니까          
+    }
 }
 
 init();
